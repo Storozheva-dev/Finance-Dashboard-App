@@ -48,7 +48,7 @@ const monthSchema = new Schema(
   { toJSON: { getters: true } }
 );
 
-const KpiSchema = new Schema(
+const KPISchema = new Schema(
   {
     totalProfit: {
       type: mongoose.Types.Currency,
@@ -79,5 +79,6 @@ const KpiSchema = new Schema(
   { timestamps: true, toJSON: { getters: true } }
 );
 
-const KPI = mongoose.model("KPI", KpiSchema);
+const KPI = mongoose.models.KPI || mongoose.model("KPI", KPISchema);
+
 export default KPI;

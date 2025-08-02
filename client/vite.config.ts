@@ -13,4 +13,10 @@ export default defineConfig({
       },
     ],
   },
+  server: {
+    proxy: {
+      "/kpi": "http://localhost:1337",
+      "/product": "http://localhost:1337",
+    },
+  },
 });
