@@ -1,6 +1,3 @@
-// eslint-disable-next-line
-import type { Palette, PaletteColor } from "@mui/material/styles";
-
 declare module "@mui/material/styles" {
   interface PaletteColor {
     [key: number]: string;

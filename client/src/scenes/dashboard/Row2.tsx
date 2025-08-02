@@ -112,11 +112,7 @@ const Row2 = () => {
           </LineChart>
         </ResponsiveContainer>
       </DashboardBox>
-      <DashboardBox
-        gridArea="e"
-       
-        
-      >
+      <DashboardBox gridArea="e">
         <BoxHeader title="Campaigns and Targets" sideText="+4%" />
         <FlexBetween mt="0.25rem" gap="1.5rem" pr="1rem">
           <PieChart
@@ -137,7 +133,7 @@ const Row2 = () => {
               paddingAngle={2}
               dataKey="value"
             >
-              {pieData.map((entry, index) => (
+              {pieData.map((_, index) => (
                 <Cell key={`cell-${index}`} fill={pieColors[index]} />
               ))}
             </Pie>
@@ -194,13 +190,13 @@ const Row2 = () => {
               style={{ fontSize: "10px" }}
               tickFormatter={(v) => `$${v}`}
             />
-            <ZAxis type="number" range={[20]} />
+            <ZAxis type="number" range={[0, 20]} />
             <Tooltip formatter={(v) => `$${v}`} />
             <Scatter
               name="Product Expense Ratio"
               data={productExpenseData}
               fill={palette.tertiary[500]}
-              shape={(props) => {
+              shape={(props: any) => {
                 const { cx, cy, fill } = props;
                 return (
                   <circle
