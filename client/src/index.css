@@ -24,3 +24,14 @@ body,
 ::-webkit-scrollbar-track:hover {
   background: #2a2b2f;
 }
+.MuiDataGridVariables-4173353398 {
+  background-color: #2d2d34 !important;
+}
+
+.MuiDataGrid-root .MuiDataGrid-columnHeader {
+  background-color: #2d2d34 !important;
+}
+.MuiDataGrid-columnHeaders,
+.MuiDataGrid-columnHeader {
+  background-color: #2d2d34 !important;
+}

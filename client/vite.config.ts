@@ -17,6 +17,7 @@ export default defineConfig({
     proxy: {
       "/kpi": "http://localhost:1337",
       "/product": "http://localhost:1337",
+      "/transaction": "http://localhost:1337",
     },
   },
 });
