@@ -5,6 +5,9 @@ import cors from "cors";
 import dotenv from "dotenv";
 import helmet from "helmet";
 import morgan from "morgan";
+import path from "path";
+import { fileURLToPath } from "url";
+
 import kpiRoutes from "./routes/kpi.js";
 import productRoutes from "./routes/product.js";
 import transactionRoutes from "./routes/transaction.js";
@@ -29,16 +32,25 @@ app.use("/kpi", kpiRoutes);
 app.use("/product", productRoutes);
 app.use("/transaction", transactionRoutes);
 
+/* STATIC FILES */
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+
+app.use(express.static(path.join(__dirname, "../client/dist"))); 
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "../client/dist/index.html"));
+});
+
 /* MONGOOSE SETUP */
 const PORT = process.env.PORT || 9000;
-mongoose;
 mongoose
   .connect(process.env.MONGO_URL)
   .then(() => {
     console.log("MongoDB подключен!");
-    app.listen(PORT, () => console.log(`Сервер запущен на порту: ${PORT}`));
+    app.listen(PORT, () => console.log(`Сервер: ${PORT}`));
   })
   .catch((err) => {
-    console.error("ОШИБКА MongoDB:", err.message);
+    console.error("MongoDB:", err.message);
     process.exit(1);
   });
